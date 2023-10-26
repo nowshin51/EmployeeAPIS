@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "53bd891b-7fa7-4ae8-99df-c0e671330aff",
+		"name": "EmployeeAPIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29717117",
+		"_collection_link": "https://lunar-space-72724.postman.co/workspace/firstworkspace~bc3b111e-2812-45e2-ad9e-fb6b290f22a2/collection/29717117-53bd891b-7fa7-4ae8-99df-c0e671330aff?action=share&source=collection_link&creator=29717117"
+	},
+	"item": [
+		{
+			"name": "\tAll employee data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"Validate Validate response code\"] = responseCode.code == 200;\r",
+							"tests[\"Validate name\"] = response.data[1].employee_name == \"Garrett Winters\";\r",
+							"tests[\"Validate salary\"] = response.data[3].employee_salary == 433060;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single user data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"Validate Validate response code\"] = responseCode.code == 200;\r",
+							"tests[\"Validate salary\"] = response.data.employee_salary == 320800;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/employee/982",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"982"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a  new employee data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"moon\",\"salary\":\"50000\",\"age\":\"23\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/create",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update specific employee data",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Jenette Caldwell\",\"salary\":\"445000\",\"age\":\"35\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/update/21",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"update",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete data",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/delete/21",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						"21"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
